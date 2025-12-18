@@ -1,0 +1,39 @@
+[package]
+name = "txnsfr"
+version = "0.1.0"
+description = "Privacy-preserving file transfer protocol on Solana"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "txnsfr"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+# Network-specific features for ADMIN_PUBKEY configuration
+localnet = []
+localnet-mint-checked = []
+devnet = []
+
+[dependencies]
+anchor-lang = { version = "0.32.1", features = ["init-if-needed"] }
+anchor-spl = "0.32.1"
+bytemuck = { version = "1.24.0", features = ["derive", "min_const_generics"] }
+light-poseidon = "0.4.0"
+light-hasher = "4.0.0"
+num-bigint = "0.4.4"
+ark-bn254 = { version = "0.5.0", features = [] }
+ark-ff = { version = "0.5.0", features = [] }
+ark-serialize = { version = "0.5.0", features = [] }
+thiserror = "1.0.69"
+solana-bn254 = "2.2.2"
+solana-security-txt = "1.1.2"
+solana-program = "2.0.0"
+
+[lints.rust]
+unexpected_cfgs = { level = "allow", check-cfg = ['cfg(feature, values("custom-heap", "custom-panic", "anchor-debug", "localnet", "localnet-mint-checked", "devnet"))', 'cfg(target_os, values("solana"))'] }

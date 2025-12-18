@@ -1,0 +1,28 @@
+[toolchain]
+anchor_version = "0.32.1"
+
+[features]
+seeds = false
+skip-lint = false
+
+[programs.localnet]
+txnsfr = "4DnmMXK7zJrhgzXpTBeJVLWS1vYgrXjucaCtbxN4kax1"
+
+[programs.devnet]
+txnsfr = "4DnmMXK7zJrhgzXpTBeJVLWS1vYgrXjucaCtbxN4kax1"
+
+# Mainnet program ID - will be set after deployment
+# NOTE: Once deployed, the program is IMMUTABLE and cannot be upgraded
+[programs.mainnet]
+txnsfr = "HV9pDozXQxZKE4CeaA5joAp4Mv9wyayEFh2gJVR9hJ9a"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "Devnet"
+url = "https://devnet.helius-rpc.com/?api-key=e3801efd-338e-4f44-b4ed-bc9333b84b81"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"

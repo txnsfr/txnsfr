@@ -1,0 +1,29 @@
+# Build artifacts
+target/
+*.so
+*.r1cs
+*.sym
+*.zkey
+*.ptau
+*.wasm
+
+# JS build outputs
+*_js/
+
+# Anchor artifacts
+.anchor/
+test-ledger/
+
+# Dependencies
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
